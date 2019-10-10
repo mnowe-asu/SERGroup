@@ -16,6 +16,7 @@ public class QueryUI extends Application{
 	public void start(Stage stage) throws Exception {
 		height = 100;
 		width = 300;
+		//Create the containers with preferred size 
 		VBox queryBox = new VBox();
 		Label textLabel = new Label("SQL Query");
 		Button execute = new Button("Execute");
@@ -23,16 +24,19 @@ public class QueryUI extends Application{
 		textBox.setPrefHeight(height);
 		textBox.setPrefWidth(width);
 		textBox.setText("Enter your query here");
+		//Action Listener for Button
 		execute.setOnAction((event) -> {
 			String query = textBox.getText();
 			System.out.println(query);
 		});
+		//Add Containers to a layout
 		FlowPane flow = new FlowPane();
 		queryBox.getChildren().add(textLabel);
 		queryBox.getChildren().add(textBox);
 		queryBox.getChildren().add(execute);
 		flow.getChildren().add(queryBox);
 		flow.setAlignment(Pos.CENTER);
+		//Add layout to Scene and Show
 		stage.setScene(new Scene(flow));
 		stage.show();
 		
